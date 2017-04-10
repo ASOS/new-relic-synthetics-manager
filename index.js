@@ -20,10 +20,20 @@ $browser.waitForAndFindElement = function (locatorOrElement, timeoutMsOpt) {
         });
 };
 
+var $util = {
+  insights: {
+    set: function (message, elapsedTime) {
+      console.log('### MESSAGE from UTIL MOCK ### - $util.insights.set was called with params: ' + message + ', ' + elapsedTime);
+    }
+  }
+};
+
 global.$browser = $browser;
 global.$driver = $driver;
+global.$util = $util;
 
 module.exports = {
     driver: $driver,
-    browser: $browser
+    browser: $browser,
+    util: $util
 };
